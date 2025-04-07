@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portrait Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h3 {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input[type="text"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    img {
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <form method="POST" enctype="multipart/form-data">
+    <label>Upload Photo</label>
+    <input type="file" name="photo" required>
+
+    <label>Gender</label>
+    <select name="gender">
+      <option value="a woman">Female</option>
+      <option value="a man">Male</option>
+    </select>
+
+    <label>Hair Style</label>
+    <select name="hair_style">
+      <option value="long">Long</option>
+      <option value="short">Short</option>
+      <option value="curly">Curly</option>
+      <option value="straight">Straight</option>
+    </select>
+
+    <label>Hair Color</label>
+    <input type="text" name="hair_color" placeholder="e.g. black, blonde">
+
+    <label>Facial Expression</label>
+    <select name="expression">
+      <option value="smiling">Smiling</option>
+      <option value="serious">Serious</option>
+      <option value="neutral">Neutral</option>
+    </select>
+
+    <label>Emotion</label>
+    <select name="emotion">
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="angry">Angry</option>
+    </select>
+
+    <label>Historical Era</label>
+    <select name="era">
+      <option value="Renaissance">Renaissance</option>
+      <option value="Modern">Modern</option>
+      <option value="Medieval">Medieval</option>
+      <option value="Future">Future</option>
+    </select>
+
+    <button type="submit">Generate Portrait</button>
+  </form>
+
+  {% if image_url %}
+    <h3>Generated Image</h3>
+    <img src="{{ image_url }}" width="400">
+  {% endif %}
+
+</body>
+</html>
