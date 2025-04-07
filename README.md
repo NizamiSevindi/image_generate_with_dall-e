@@ -1,0 +1,1 @@
+git remote add origin https://github.com/NizamiSevindi/image_generate_with_dall-e.git
